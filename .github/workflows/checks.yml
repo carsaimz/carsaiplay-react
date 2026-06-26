@@ -6,7 +6,7 @@ on:
 
 jobs:
   lint-build:
-    name: Lint & Build Check
+    name: Type Check & Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -16,7 +16,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --include=optional
 
       - name: Type check
         run: npx tsc --noEmit

@@ -49,7 +49,7 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --include=optional
 
       - name: Build web
         run: npm run build
@@ -101,8 +101,8 @@ jobs:
       - name: Rename outputs
         run: |
           TAG=${{ steps.version.outputs.tag }}
-          cp android/app/build/outputs/apk/release/app-release.apk     carsaiplay-${TAG}.apk
-          cp android/app/build/outputs/bundle/release/app-release.aab   carsaiplay-${TAG}.aab
+          cp android/app/build/outputs/apk/release/app-release.apk   carsaiplay-${TAG}.apk
+          cp android/app/build/outputs/bundle/release/app-release.aab carsaiplay-${TAG}.aab
 
       - name: Generate changelog
         id: changelog
@@ -130,7 +130,7 @@ jobs:
 
             ---
             ### 📲 Instalação
-            - **APK** → transferir e instalar directamente no dispositivo Android
+            - **APK** → transferir e instalar directamente no Android
             - **AAB** → para publicar na Google Play Store
 
             ### ⚙️ Requisitos
