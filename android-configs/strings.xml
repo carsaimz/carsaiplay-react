@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- android/app/src/main/res/values/strings.xml -->
+<resources>
+    <string name="app_name">CarsaiPlay</string>
+    <string name="title_activity_main">CarsaiPlay</string>
+    <string name="package_name">mz.carsaiplay.app</string>
+    <string name="custom_url_scheme">mz.carsaiplay.app</string>
+</resources>

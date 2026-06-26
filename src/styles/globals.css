@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+  body {
+    @apply bg-surface text-text-primary font-sans;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+  }
+  ::-webkit-scrollbar       { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: #0a0a0f; }
+  ::-webkit-scrollbar-thumb { background: #e50914; border-radius: 2px; }
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-200 cursor-pointer select-none disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-primary text-white hover:bg-primary-hover active:scale-95; }
+  .btn-ghost   { @apply btn bg-transparent border border-surface-border text-text-secondary hover:border-primary hover:text-white; }
+  .btn-icon    { @apply btn p-2.5 rounded-full bg-surface-card border border-surface-border hover:bg-surface-elevated hover:border-primary text-text-secondary hover:text-white; }
+
+  .card       { @apply bg-surface-card border border-surface-border rounded-xl overflow-hidden transition-all duration-200; }
+  .card-hover { @apply card hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5; }
+
+  .input  { @apply w-full bg-surface-elevated border border-surface-border rounded-lg px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-primary/70 focus:ring-1 focus:ring-primary/20 transition-colors duration-200; }
+  .label  { @apply block text-sm font-medium text-text-secondary mb-1.5; }
+
+  .badge        { @apply inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium; }
+  .badge-red    { @apply badge bg-primary/20 text-primary; }
+  .badge-green  { @apply badge bg-success/20 text-success; }
+  .badge-yellow { @apply badge bg-warning/20 text-warning; }
+  .badge-blue   { @apply badge bg-info/20 text-info; }
+  .badge-gray   { @apply badge bg-surface-border text-text-secondary; }
+
+  .section-title { @apply text-xl font-semibold text-text-primary flex items-center gap-2; }
+  .page-title    { @apply text-2xl font-display tracking-wide text-white; }
+
+  .content-card         { @apply relative rounded-lg overflow-hidden cursor-pointer group; }
+  .content-card img     { @apply w-full aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105; }
+  .content-card-overlay { @apply absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3; }
+
+  .skeleton { @apply bg-surface-elevated animate-pulse rounded; }
+}
+
+@layer utilities {
+  .text-gradient { @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+  .line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+  .safe-bottom  { padding-bottom: env(safe-area-inset-bottom); }
+  .safe-top     { padding-top: env(safe-area-inset-top); }
+}

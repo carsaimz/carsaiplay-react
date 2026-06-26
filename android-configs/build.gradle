@@ -1,0 +1,43 @@
+// android/app/build.gradle  — referência completa
+// Copia este conteúdo para android/app/build.gradle após `npx cap add android`
+
+apply plugin: 'com.android.application'
+
+android {
+    namespace "mz.carsaiplay.app"
+    compileSdk 34
+    defaultConfig {
+        applicationId "mz.carsaiplay.app"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "2.1.0"
+    }
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    signingConfigs {
+        release {
+            // Preenchido pelo GitHub Actions via parâmetros -P
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation project(':capacitor-android')
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
+    implementation "androidx.core:core-splashscreen:1.0.1"
+}
