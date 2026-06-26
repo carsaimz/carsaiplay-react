@@ -120,7 +120,7 @@ export default function Settings() {
           </button>
         </div>
 
-        <p className="text-center text-xs text-text-muted pt-2">CarsaiPlay v2.1.0</p>
+        <p className="text-center text-xs text-text-muted pt-2">CarsaiPlay v1.0.0</p>
       </div>
     </div>
   );
