@@ -37,9 +37,11 @@
   .section-title { @apply text-xl font-semibold text-text-primary flex items-center gap-2; }
   .page-title    { @apply text-2xl font-display tracking-wide text-white; }
 
-  .content-card         { @apply relative rounded-lg overflow-hidden cursor-pointer group; }
-  .content-card img     { @apply w-full aspect-[2/3] object-cover transition-transform duration-300 group-hover:scale-105; }
-  .content-card-overlay { @apply absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3; }
+  .content-card         { @apply relative rounded-lg overflow-hidden cursor-pointer; }
+  .content-card img     { @apply w-full aspect-[2/3] object-cover transition-transform duration-300; }
+  .content-card:hover img { @apply scale-105; }
+  .content-card-overlay { @apply absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 transition-opacity duration-300 flex flex-col justify-end p-3; }
+  .content-card:hover .content-card-overlay { @apply opacity-100; }
 
   .skeleton { @apply bg-surface-elevated animate-pulse rounded; }
 }
