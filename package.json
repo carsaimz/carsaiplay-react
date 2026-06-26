@@ -2,11 +2,13 @@
   "name": "carsaiplay",
   "version": "2.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0",
     "cap:sync": "npx cap sync",
     "cap:open:android": "npx cap open android",
     "cap:run:android": "npx cap run android"
@@ -46,5 +48,9 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
     "vite": "^6.0.7"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
