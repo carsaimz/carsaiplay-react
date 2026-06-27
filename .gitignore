@@ -1,26 +1,13 @@
-# Dependências
 node_modules/
-
-# Build
 dist/
-
-# Ambiente
 .env
 .env.local
 .env.production
-
-# Android (gerado por `npx cap add android`)
 android/
-
-# iOS
 ios/
-
-# Keystore (NUNCA commitar!)
 *.keystore
 *.jks
-
-# Editor
 .DS_Store
-.vscode/settings.json
 *.local
 coverage/
+.vercel/

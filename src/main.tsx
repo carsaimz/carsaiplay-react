@@ -2,12 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Capacitor } from '@capacitor/core';
 import App from './App';
 import './styles/globals.css';
 
+// Esconder splash IMEDIATAMENTE — evita ficar preso
+if (Capacitor.isNativePlatform()) {
+  import('@capacitor/splash-screen').then(({ SplashScreen }) => {
+    SplashScreen.hide({ fadeOutDuration: 300 }).catch(() => {});
+  }).catch(() => {});
+}
+
 const queryClient = new QueryClient({
   defaultOptions: {
-    queries: { staleTime: 1000 * 60 * 5, retry: 1, refetchOnWindowFocus: false },
+    queries: {
+      staleTime: 1000 * 60 * 5,
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
   },
 });
 
