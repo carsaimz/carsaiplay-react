@@ -49,7 +49,7 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Install dependencies
-        run: npm install --include=optional
+        run: npm install
 
       - name: Build web
         run: npm run build
@@ -63,6 +63,15 @@ jobs:
           VITE_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}
           VITE_FIREBASE_APP_ID: ${{ secrets.VITE_FIREBASE_APP_ID }}
           VITE_FIREBASE_VAPID_KEY: ${{ secrets.VITE_FIREBASE_VAPID_KEY }}
+
+      - name: Add Android platform
+        run: npx cap add android
+
+      - name: Copy android configs
+        run: |
+          cp android-configs/strings.xml android/app/src/main/res/values/strings.xml
+          cp android-configs/colors.xml  android/app/src/main/res/values/colors.xml
+          cp android-configs/styles.xml  android/app/src/main/res/values/styles.xml
 
       - name: Capacitor sync
         run: npx cap sync android
